@@ -2,7 +2,8 @@
 #include <algorithm>
 using namespace std;
 
-
+//Hecho por Ricardo Canales A01191463
+//y Alejandro Sanchez A01191434
 
 
 int main() {
