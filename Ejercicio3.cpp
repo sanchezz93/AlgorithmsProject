@@ -1,6 +1,8 @@
 #include <iostream>
-#include <algorithm> 
+#include <algorithm>
 using namespace std;
+
+
 
 
 int main() {
@@ -8,29 +10,26 @@ int main() {
 	cin >> casos;
 	while(casos--){
 		cin >> n;
-		int p[n], lowest, highest, lowestDay, highestDay;
-		lowest = p[0];
-		for(int i =1;i<n;i++){
-			if(p[i]>lowest){
-				lowest=p[i];
-				lowestDay=i;
-			}
-		}
-		highest=p[lowestDay+1]
-		for(int i = lowestDay;i<n;i++){
-			if(p[i]>lowest){
-				lowest=p[i];
-				lowestDay=i;
-			}	
-		}
-
-
+		int p[n], lowestDay, highestDay;
+		for(int i = 0; i <n;i++) cin >> p[i];
+		int maxDiff = p[1] - p[0];
+		highestDay=0;//EXPERIMENTAL
+		lowestDay=0;
+	    int i, j;
+	    for(i = 0; i < n; i++){
+	    	for(j = i+1; j < n; j++){
+		        if(p[j] - p[i] > maxDiff){
+	        		maxDiff = p[j] - p[i];
+	        		highestDay=j;
+	        		lowestDay=i;
+	        	}
+	    	}
+	    }
+	    if(maxDiff<=0)
+	    	cout << "NO COMPRES" << endl;
+	    else
+	    	cout << "Compra en "<< lowestDay+1 << ", vende en " << highestDay+1 << endl;
 	}
-
 	return 0;
 }
 
-
-3
-2
-1
