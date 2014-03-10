@@ -29,7 +29,7 @@ int main() {
 	    if(maxDiff<=0)
 	    	cout << "NO COMPRES" << endl;
 	    else
-	    	cout << "Compra en "<< lowestDay+1 << ", vende en " << highestDay+1 << endl;
+	    	cout << "Buy in "<< lowestDay+1 << ", sell in " << highestDay+1 << endl;
 	}
 	return 0;
 }
