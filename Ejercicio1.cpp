@@ -48,11 +48,7 @@ int main()
 			cin>>a[i] ;
 		}
 		MergeSort(1,num);
-
-
-		for(i=1;i<=num;i++)
-			cout<<a[i]<<" ";
-        cout << endl<< count << endl;
+        cout << count << endl;
 		cin >> num;
 	}
 	return 0;
