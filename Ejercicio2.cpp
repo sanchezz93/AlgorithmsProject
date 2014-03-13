@@ -3,34 +3,45 @@
 
 using namespace std;
 
-void binarySearch(int &array1[],int &array2[],int n)
-{
+
+void binarySearch(int array1[],int array2[],int n){
        double position1, position2, answer;
        int comparisonCount = 1;    //count the number of comparisons (optional)
-
+       int p1, p2;
+        int test;
        // To start, find the subscript of the middle position.
-       position1 = ( 0 + n-1) / 2;
-       position2=position1;
+       p1 = ( 0 + n-1) / 2;
+       p2=p1;
        bool found=false;
+       position1=p1;
+       position2=p1;
        while(!found)
        {
-             if (array1[position1] < array2[position2-1])
+           cout << array1[p1] << " and " <<  array2[p2] << endl;
+           cin >> test;
+             if ((array1[p1] < array2[p2-1])||(array2[p2] > array1[p1+1]))
              {                                                       // decrease position by one.
              	position1=(position1+1+n-1)/2;
-             	position1=ceil(position1);
+             	position1=floor(position1);
+             	cout << "p1 " << position1 << endl;
+             	p1=position1;
 
-             }                                                      
-             else if(array2[position2] < array1[position1+1])                                               
+             }
+             else if((array2[p2] < array1[p1+1])||(array1[p1] > array2[p2-1]))
 			 {
 				position2=(0+position2-1)/2;
-				position2=floor(position2);
+				position2=ceil(position2);
+				cout << "p2 " << position2 << endl;
+				p2=position2;
              }
-             else
-             	answer=(array1[position1]+array[position2])/2;
+             else{
+             	answer=(array1[p1]+array2[p2])/2;
+             	found=true;
+             }
        }
 	   cout << "ANSWER: " << answer << endl;
        return;  // you may also consider returning the subscript
-} 
+}
 
 int main()
 {
@@ -46,7 +57,7 @@ int main()
 		}
 		for(int i = 0; i < n; i++)
 		{
-			cin >> arreglo2[i];	
+			cin >> arreglo2[i];
 		}
 		binarySearch(arreglo1, arreglo2, n);
 
